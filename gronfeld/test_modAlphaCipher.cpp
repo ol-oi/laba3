@@ -59,22 +59,27 @@ void testDecryptInvalidText() {
     modAlphaCipher cipher("КЛЮЧ");
     try {
         cipher.decrypt("INVALIDTEXT123");
-       // assert(false); // Не должно дойти до этого
+        assert(false); // Не должно дойти до этого
     } catch (const cipher_error& e) {
         std::cout << "Тест на дешифрование текста с недопустимыми символами пройден." << std::endl;
     }
 }
 
-
 int main() {
-    testValidKey();
-    testEmptyKey();
-    testInvalidKeyCharacters();
-    testEncryptValidText();
-    testDecryptValidText();
-    testEncryptInvalidText();
-    testDecryptInvalidText();
+    try {
+        testValidKey();
+        testEmptyKey();
+        testInvalidKeyCharacters();
+        testEncryptValidText();
+        testDecryptValidText();
+        testEncryptInvalidText();
+        testDecryptInvalidText();
 
-    std::cout << "Все тесты пройдены!" << std::endl;
-    return 0;
+        std::cout << "Все тесты пройдены!" << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Произошла ошибка: " << e.what() << std::endl;
+        return 1; // Возвращаем ненулевой код ошибки
+    }
+
+    return 0; // Успешное завершение
 }
