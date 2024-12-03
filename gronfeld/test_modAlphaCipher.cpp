@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "modAlphaCipher.h"  // Подключаем заголовочный файл вашего класса
+#include "modAlphaCipher.h"  // Подключаем заголовочный файл 
 
 void testValidKey() {
     try {
@@ -33,13 +33,20 @@ void testInvalidKeyCharacters() {
 void testEncryptValidText() {
     modAlphaCipher cipher("КЛЮЧ");
     std::string encrypted = cipher.encrypt("ТЕКСТ");
+    std::string expectedEncrypted = "ПРИВЕТ"; 
+
     assert(!encrypted.empty());
+    assert(encrypted == expectedEncrypted);
     std::cout << "Тест на шифрование валидного текста пройден." << std::endl;
 }
 
 void testDecryptValidText() {
     modAlphaCipher cipher("КЛЮЧ");
     std::string encrypted = cipher.encrypt("ТЕКСТ");
+    std::string expectedEncrypted = "ПОКА"; 
+
+    assert(encrypted == expectedEncrypted);
+    
     std::string decrypted = cipher.decrypt(encrypted);
     assert(decrypted == "ТЕКСТ");
     std::cout << "Тест на дешифрование валидного зашифрованного текста пройден." << std::endl;
