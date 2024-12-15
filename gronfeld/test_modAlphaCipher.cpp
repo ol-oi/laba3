@@ -32,8 +32,8 @@ void testInvalidKeyCharacters() {
 
 void testEncryptValidText() {
     modAlphaCipher cipher("КЛЮЧ");
-    std::string encrypted = cipher.encrypt("ТЕКСТ");
-    std::string expectedEncrypted = "ШРЖКШ"; 
+    std::string encrypted = cipher.encrypt("ЧУМАЗИН");
+    std::string expectedEncrypted = "ВЯКЧТФЛ"; 
 
     assert(!encrypted.empty());
     assert(encrypted == expectedEncrypted);
