@@ -1,16 +1,3 @@
-#include <iostream>
-#include <cctype>
-#include <locale>
-#include "modAlphaCipher.h"
-
-using namespace std;
-
-void check(const string& Text, const string& key, const bool destructCipherText=false) {
-    try {
-        string cipherText;
-        string decryptedText;
-        modAlphaCipher cipher(key);
-        cipherText = cipher.encrypt(Text);
 #pragma once
 #include <vector>
 #include <string>
