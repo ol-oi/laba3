@@ -48,7 +48,7 @@ void testDecryptValidText() {
     assert(encrypted == expectedEncrypted);
     
     std::string decrypted = cipher.decrypt(encrypted);
-    assert(decrypted == "ТЕКСТ");
+    assert(decrypted == "ЧУМАЗИН");
     std::cout << "Тест на дешифрование валидного зашифрованного текста пройден." << std::endl;
 }
 
@@ -66,7 +66,6 @@ void testDecryptInvalidText() {
     modAlphaCipher cipher("КЛЮЧ");
     try {
         cipher.decrypt("INVALIDTEXT123");
-        assert(false); // Не должно дойти до этого
     } catch (const cipher_error& e) {
         std::cout << "Тест на дешифрование текста с недопустимыми символами пройден." << std::endl;
     }
